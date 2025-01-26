@@ -1,5 +1,8 @@
 import { useConnection, useWallet } from '@solana/wallet-adapter-react'
 import { useEffect, useState } from 'react'
+import {
+    WalletMultiButton
+} from '@solana/wallet-adapter-react-ui';
 
 const RequestAirdrop = () => {
     const wallet = useWallet()
@@ -28,7 +31,8 @@ const RequestAirdrop = () => {
 
     
   return (
-    <div>
+    <div className="h-screen w-screen flex justify-center flex-col items-center">
+        <WalletMultiButton />
         <br />
         My Public Key <br />
         <b>
@@ -39,7 +43,7 @@ const RequestAirdrop = () => {
         <b>
         {balance} SOL
         </b> <br /> <br />
-        <input onChange={(e) =>{setAmount(e.target.value)}} type="text" placeholder='amount...' /><br /> <br />
+        <input className='p-4 rounded-md' onChange={(e) =>{setAmount(e.target.value)}} type="text" placeholder='amount...' /><br /> <br />
         
         <button onClick={requestAirdrop}>Request Airdrop</button>
     </div>
